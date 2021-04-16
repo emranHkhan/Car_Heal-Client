@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Sidebar from '../Sidebar/Sidebar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
-import AdminSidebar from '../Sidebar/AdminSidebar';
+
 
 
 const ManageService = () => {
@@ -31,7 +31,7 @@ const ManageService = () => {
     return (
         <div className="row">
             <div className="col">
-                <AdminSidebar />
+                <Sidebar />
             </div>
             <div className="col">
                 <table className="table text-center">
