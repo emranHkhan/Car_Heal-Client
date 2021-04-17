@@ -40,7 +40,7 @@ const NavBar = () => {
                         About Us
                     </Nav.Link>
 
-                    <Nav.Link className='link' as={Link} to="/book">
+                    <Nav.Link className='link' as={Link} to="">
                          Contact
                     </Nav.Link>
 
