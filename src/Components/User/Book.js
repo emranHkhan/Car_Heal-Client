@@ -85,7 +85,10 @@ const Book = () => {
             </div>
 
             <div className="col-md-9" style={{ display: shippingData ? 'block' : 'none' }}>
-                <div className="mt-5 p-5">
+                <div>
+                    <img src={payonline} alt="" className="w-25 d-block mx-auto mt-3"/>
+                </div>
+                <div className="mt-4 border border-primary p-5">
                     <ProcessPayment handlePaymentSuccess={handlePaymentSuccess} />
                 </div>
 
