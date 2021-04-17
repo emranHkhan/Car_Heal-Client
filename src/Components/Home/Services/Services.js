@@ -1,20 +1,22 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useHistory } from 'react-router';
+import { UserContext } from '../../../App';
 import './Services.css';
 
 
 
 
 const Services = ({ serviceData }) => {
-
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const history = useHistory();
     const handleBook = (id) => {
         history.push(`/user/book/${id}`)
+
     }
 
-
+    console.log(loggedInUser.role);
     return (
-        <div className="container text-center my-5">
+        <div className="container-fluid text-center py-5" style={{backgroundImage: 'linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)'}}>
             <h6>What we offer</h6>
             <h1 className="mt-4">We Provide Quality Service</h1>
 
@@ -36,7 +38,7 @@ const Services = ({ serviceData }) => {
                                             <div className="text-container">
                                                 <h6>{service.title}</h6>
                                                 <p>{service.description}</p>
-                                                <p>{service.charge}</p>
+                                                <p><strong>${service.charge}</strong></p>
                                             </div>
                                         </div>
                                         <div className="p-2">

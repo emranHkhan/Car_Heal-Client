@@ -1,8 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { UserContext } from '../../../App';
+import ShowCarousel from '../Carousel/ShowCarousel';
 import Header from '../Header/Header';
 import Reviews from '../Reviews/Reviews';
 import Services from '../Services/Services';
+import ArticlesLoader from '../Articles/ArticlesLoader';
+import Footer from '../Footer/Footer';
+
 
 const Home = () => {
     const [serviceData, setServiceData] = useState([]);
@@ -10,7 +14,7 @@ const Home = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
 
     useEffect(() => {
-        fetch('http://localhost:5000/serviceonhome')
+        fetch('https://limitless-bastion-22533.herokuapp.com/serviceonhome')
             .then(res => res.json())
             .then(data => {
                 console.log(data);
@@ -19,7 +23,7 @@ const Home = () => {
     }, [loggedInUser])
 
     useEffect(() => {
-        fetch('http://localhost:5000/loadreviews')
+        fetch('https://limitless-bastion-22533.herokuapp.com/loadreviews')
             .then(res => res.json())
             .then(data => {
                 console.log(data);
@@ -32,7 +36,10 @@ const Home = () => {
         <>
             <Header />
             <Services serviceData={serviceData} />
+            <ShowCarousel />
+            <ArticlesLoader/>
             <Reviews reviews={reviews}/>
+            <Footer />
         </>
 
 

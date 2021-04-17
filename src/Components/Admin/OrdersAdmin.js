@@ -4,7 +4,7 @@ import Sidebar from '../Sidebar/Sidebar';
 const OrdersAdmin = () => {
     const [servicesOnAdmin, setServicesOnAdmin] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/orders')
+        fetch('https://limitless-bastion-22533.herokuapp.com/orders')
             .then(res => res.json())
             .then(data => {
                 console.log(data);
@@ -13,7 +13,7 @@ const OrdersAdmin = () => {
     }, [])
 
     const handleChange = (value, id) => {
-        fetch(`http://localhost:5000/update/${id}`, {
+        fetch(`https://limitless-bastion-22533.herokuapp.com/update/${id}`, {
             method: 'PATCH',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({status: value})
@@ -28,11 +28,11 @@ const OrdersAdmin = () => {
  
 
     return (
-        <div className="row">
-            <div className="col-3">
+        <div className="row" style={{height: '100vh'}}>
+            <div className="col-md-3">
                 <Sidebar />
             </div>
-            <div className="col-9">
+            <div className="col-md-9 p-5">
                 <table className="table">
                     <thead>
                         <tr>

@@ -4,6 +4,7 @@ import { useParams } from 'react-router';
 import { UserContext } from '../../App';
 import ProcessPayment from '../Payment/ProcessPayment';
 import Sidebar from '../Sidebar/Sidebar';
+import payonline from '../../images/payonline.png';
 
 
 const Book = () => {
@@ -12,7 +13,7 @@ const Book = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/serviceonbook/${id}`)
+        fetch(`https://limitless-bastion-22533.herokuapp.com/serviceonbook/${id}`)
             .then(res => res.json())
             .then(data => {
                 console.log(data[0]);
@@ -40,7 +41,7 @@ const Book = () => {
 
 
 
-        fetch('http://localhost:5000/addOrder', {
+        fetch('https://limitless-bastion-22533.herokuapp.com/addOrder', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(orderDetails)
@@ -57,14 +58,14 @@ const Book = () => {
 
 
     return (
-        <div className="row">
+        <div className="row" style={{height: '100vh'}}>
 
-            <div className="col-3">
+            <div className="col-md-3">
                 <Sidebar />
             </div>
 
-            <div className="col-9 p-5" style={{ display: shippingData ? 'none' : 'block' }}>
-                <form className="form-group" onSubmit={handleSubmit(onSubmit)}>
+            <div className="col-md-9 p-5" style={{ display: shippingData ? 'none' : 'block' }}>
+                <form className="form-group w-75" onSubmit={handleSubmit(onSubmit)}>
                     <label>Name</label>
                     <input name="name" defaultValue={loggedInUser.name} ref={register({ required: true })} className="form-control" />
                     <label className="mt-3">Email</label>
@@ -79,9 +80,11 @@ const Book = () => {
                 </form>
             </div>
 
-            <div className="col-9 p-5" style={{ display: shippingData ? 'block' : 'none' }}>
-                <h1>Please Pay</h1>
-                <ProcessPayment handlePaymentSuccess={handlePaymentSuccess} />
+            <div className="col-md-9" style={{ display: shippingData ? 'block' : 'none' }}>
+                <div className="mt-5 p-5">
+                    <ProcessPayment handlePaymentSuccess={handlePaymentSuccess} />
+                </div>
+
             </div>
         </div>
     );

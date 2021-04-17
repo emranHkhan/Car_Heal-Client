@@ -9,7 +9,7 @@ const ManageService = () => {
     const [services, setServices] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/allservices')
+        fetch('https://limitless-bastion-22533.herokuapp.com/allservices')
             .then(res => res.json())
             .then(data => {
                 console.log(data);
@@ -18,7 +18,7 @@ const ManageService = () => {
     }, [])
 
     const handleDelete = (id, e) => {
-        fetch(`http://localhost:5000/delete/${id}`, {
+        fetch(`https://limitless-bastion-22533.herokuapp.com/delete/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.text())
@@ -29,12 +29,12 @@ const ManageService = () => {
     }
 
     return (
-        <div className="row">
-            <div className="col">
+        <div className="row" style={{height: '100vh'}}>
+            <div className="col-md-3">
                 <Sidebar />
             </div>
-            <div className="col">
-                <table className="table text-center">
+            <div className="col-md-9 p-5">
+                <table className="table">
                     <thead>
                         <tr>
 

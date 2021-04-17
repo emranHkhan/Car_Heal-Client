@@ -32,7 +32,7 @@ const ServicesAdmin = () => {
 
         console.log(serviceData);
 
-        fetch('http://localhost:5000/addService', {
+        fetch('https://limitless-bastion-22533.herokuapp.com/addService', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(serviceData)
@@ -61,13 +61,13 @@ const ServicesAdmin = () => {
     }
 
     return (
-        <div className="row">
-            <div className="col">
+        <div className="row" style={{height: '100vh'}}>
+            <div className="col-md-3">
                 <Sidebar />
             </div>
-            <div className="col">
+            <div className="col-md-9 p-5">
 
-                <form onSubmit={handleSubmit(onSubmit)}>
+                <form onSubmit={handleSubmit(onSubmit)} className="w-75">
                     <div className="form-group">
                         <label htmlFor="exampleInputEmail1">Service Title</label>
                         <input type="text" className="form-control" id="exampleInputEmail1" placeholder="Enter Title" name="title" ref={register} />

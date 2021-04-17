@@ -4,12 +4,12 @@ import Sidebar from '../Sidebar/Sidebar';
 
 const EmptyBook = () => {
     return (
-        <div className="row">
-            <div className="col-3">
+        <div className="row" style={{height: '100vh'}}>
+            <div className="col-md-3">
                 <Sidebar />
             </div>
-            <div className="col-9">
-            <h1 className="text-center mt-4">Go to Home page and Order our service</h1>
+            <div className="col-md-9">
+            <h1 className="text-center mt-4">Go To Home Page and Order Our Services</h1>
            <img src={nodata} alt="" style={{width: "500px", display: 'block'}} className="mx-auto mt-5" />
             </div>
         </div>

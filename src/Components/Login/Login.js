@@ -4,10 +4,11 @@ import "firebase/auth";
 import firebaseConfig from './firebase.config';
 import { useHistory, useLocation } from 'react-router-dom';
 import { UserContext } from '../../App';
+import loginimg from '../../images/login.png';
 
 
 const Login = () => {
-    const [loggedInUser, setLoggedInUser] =  useContext(UserContext);
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const history = useHistory();
     const location = useLocation();
     const { from } = location.state || { from: { pathname: "/" } };
@@ -25,7 +26,7 @@ const Login = () => {
             // history.replace(from);
 
 
-            fetch('http://localhost:5000/isAdmin', {
+            fetch('https://limitless-bastion-22533.herokuapp.com/isAdmin', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email: email })
@@ -34,15 +35,10 @@ const Login = () => {
                 .then(data => {
                     // console.log(data);
                     // setIsAdmin(data);
-                    const signedInUser = {name: displayName, email: email, role: data}
+                    const signedInUser = { name: displayName, email: email, role: data }
                     setLoggedInUser(signedInUser);
                     history.replace(from);
                 })
-
-
-
-
-
 
         }).catch(function (error) {
             const errorMessage = error.message;
@@ -51,17 +47,21 @@ const Login = () => {
     }
 
 
-
-
-   console.log(loggedInUser);
- 
-
-
     return (
-        <div>
-            <h1>This is Login</h1>
-            <button onClick={handleGoogleSignIn}>Google Sign in</button>
+        <div className="container mt-5">
+            <div className="row">
+                <div className="col-md-6">
+                    <img src={loginimg} alt="" style={{maxWidth: '100%'}} />
+                </div>
+                <div className="col-md-6">
+                    <div className="mt-5">
+                        <h1 className="text-center">Please! Login.</h1>
+                        <button onClick={handleGoogleSignIn} className="mt-5 btn btn-success btn-block">Google Sign in</button>
+                    </div>
+                </div>
+            </div>
         </div>
+
     );
 };
 

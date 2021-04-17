@@ -9,7 +9,7 @@ const ClientReview = () => {
     const onSubmit = (data, e) => {
         e.target.reset();
         
-        fetch('http://localhost:5000/addreviews', {
+        fetch('https://limitless-bastion-22533.herokuapp.com/addreviews', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(data)
@@ -24,12 +24,12 @@ const ClientReview = () => {
 
 
     return (
-        <div className="row">
-            <div className="col">
+        <div className="row" style={{height: '100vh'}}>
+            <div className="col-md-3">
                 <Sidebar />
             </div>
-            <div className="col">
-            <form className="form-group p-5" onSubmit={handleSubmit(onSubmit)}>
+            <div className="col-md-9">
+            <form className="form-group p-5 w-75" onSubmit={handleSubmit(onSubmit)}>
                     
                     <input name="name" ref={register({ required: true })} className="form-control mb-4" placeholder="Your Name" />
                    
@@ -37,7 +37,7 @@ const ClientReview = () => {
 
                     <textarea className="form-control mb-4" rows="3" name="description" ref={register({ required: true })} placeholder="Descritpion"></textarea>
 
-                    <input type="submit" className="btn btn-primary w-75" />
+                    <input type="submit" className="btn btn-primary btn-block" />
                     
                 </form>
             </div>

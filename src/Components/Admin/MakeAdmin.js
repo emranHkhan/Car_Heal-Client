@@ -13,7 +13,7 @@ const MakeAdmin = () => {
             role: 'admin'
         }
 
-        fetch('http://localhost:5000/createadmin', {
+        fetch('https://limitless-bastion-22533.herokuapp.com/createadmin', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(admin)
@@ -26,15 +26,15 @@ const MakeAdmin = () => {
     }
 
     return (
-        <div className="row">
-            <div className="col">
+        <div className="row" style={{height: '100vh'}}>
+            <div className="col-md-3">
                 <Sidebar />
             </div>
-            <div className="col">
+            <div className="col-md-6 p-5">
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="form-group">
                         <label htmlFor="exampleInputEmail1">Email address</label>
-                        <input type="email" className="form-control" id="exampleInputEmail1" placeholder="Enter email" name="email" ref={register} />
+                        <input type="email" className="form-control w-75" id="exampleInputEmail1" placeholder="Enter email" name="email" ref={register} />
                     </div>
                     <button type="submit" className="btn btn-primary">Submit</button>
                 </form>

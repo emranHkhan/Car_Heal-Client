@@ -3,11 +3,11 @@ import Sidebar from '../Sidebar/Sidebar';
 
 const BookEmpty = () => {
     return (
-        <div className="row">
-            <div className="col">
+        <div className="row" style={{height: "100vh"}}>
+            <div className="col-md-3">
                 <Sidebar />
             </div>
-            <div className="col">
+            <div className="col-md-9">
                 <img src="../../images/nodata.png" alt=""/>
             </div>
         </div>

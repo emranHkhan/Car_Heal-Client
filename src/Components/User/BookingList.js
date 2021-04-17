@@ -7,7 +7,7 @@ const BookingList = () => {
     const [ordersInfo, setOrdersInfo] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/allorders?email=' + loggedInUser.email)
+        fetch('https://limitless-bastion-22533.herokuapp.com/allorders?email=' + loggedInUser.email)
             .then(res => res.json())
             .then(data => {
                 console.log(data);
@@ -17,27 +17,35 @@ const BookingList = () => {
     }, [loggedInUser])
 
     return (
-        <div className="row">
-            <div className="col-3">
+        <div className="row" style={{ height: '100vh' }}>
+            <div className="col-md-3">
                 <Sidebar />
             </div>
-            <div className="col-9">
+            <div className="col-md-9">
                 <div className="row">
 
                     {
+                        ordersInfo.length > 0 ?
                         ordersInfo.map(info =>
                             <div className="col" key={info._id}>
                                 <div className="card mt-3" style={{ width: "18rem" }}>
 
                                     <div className="card-body text-center">
-                                        <h5 className="card-title">{info.title}</h5>
+                                        <div className="d-flex justify-content-between mb-3">
+                                            <h4 className="card-title">{info.title}</h4>
+                                            <span style={{backgroundColor: 'aliceblue', padding:'5px 10px 0', borderRadius: '5px'}}>{info.status ? info.status : 'not availabe'}</span>
+                                        </div>
                                         <p className="card-text">{info.description}</p>
-                                        <p>{info.status ? info.status : 'not availabe'}</p>
                                     </div>
                                 </div>
                             </div>
 
                         )
+                        :
+                        <h1 className="text-center col">
+                            Currently You Have No Bookings.
+                        </h1>
+
                     }
 
                 </div>
