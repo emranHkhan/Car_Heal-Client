@@ -30,7 +30,19 @@ const NavBar = () => {
                 <Nav className="ml-auto">
                     <Nav.Link as={Link} to="/" className='link'>
                         Home
-            </Nav.Link>
+                    </Nav.Link>
+
+                    <Nav.Link className='link' as={Link} to="">
+                        Blogs
+                     </Nav.Link>
+
+                    <Nav.Link className='link' as={Link} to="">
+                        About Us
+                    </Nav.Link>
+
+                    <Nav.Link className='link' as={Link} to="/book">
+                         Contact
+                    </Nav.Link>
 
                     {
                         (isAdmin && isAdmin[role] === 'admin') ?
