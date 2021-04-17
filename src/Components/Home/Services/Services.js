@@ -1,5 +1,7 @@
-import React, { useContext } from 'react';
+
+import React, { useContext, useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
+import { Link } from 'react-router-dom';
 import { UserContext } from '../../../App';
 import './Services.css';
 
@@ -7,14 +9,14 @@ import './Services.css';
 
 
 const Services = ({ serviceData }) => {
-    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const history = useHistory();
     const handleBook = (id) => {
         history.push(`/user/book/${id}`)
-
     }
 
-    console.log(loggedInUser.role);
+   
+
+   
     return (
         <div className="container-fluid text-center py-5" style={{backgroundImage: 'linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)'}}>
             <h6>What we offer</h6>
@@ -43,6 +45,7 @@ const Services = ({ serviceData }) => {
                                         </div>
                                         <div className="p-2">
                                             <button className="btn btn-info btn-block" onClick={() => handleBook(service._id)}>submit</button>
+                                           
                                         </div>
                                     </div>
                                 </div>

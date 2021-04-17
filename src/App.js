@@ -62,7 +62,7 @@ function App() {
             <ManageService />
           </PrivateRoute>
 
-          <PrivateRoute path="/user/book/:id">
+          <PrivateRoute exact path="/user/book/:id">
             <Book />
           </PrivateRoute>
 

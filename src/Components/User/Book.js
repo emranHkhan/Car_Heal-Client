@@ -5,6 +5,7 @@ import { UserContext } from '../../App';
 import ProcessPayment from '../Payment/ProcessPayment';
 import Sidebar from '../Sidebar/Sidebar';
 import payonline from '../../images/payonline.png';
+import OrdersAdmin from '../Admin/OrdersAdmin';
 
 
 const Book = () => {
@@ -58,7 +59,10 @@ const Book = () => {
 
 
     return (
-        <div className="row" style={{height: '100vh'}}>
+        <>
+        {
+            loggedInUser.role ? <OrdersAdmin /> :
+            <div className="row" style={{height: '100vh'}}>
 
             <div className="col-md-3">
                 <Sidebar />
@@ -87,6 +91,8 @@ const Book = () => {
 
             </div>
         </div>
+        }
+        </>
     );
 };
 
