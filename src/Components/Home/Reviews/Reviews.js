@@ -1,4 +1,6 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUser } from '@fortawesome/free-solid-svg-icons'
 
 const Reviews = ({ reviews }) => {
     return (
@@ -13,10 +15,18 @@ const Reviews = ({ reviews }) => {
                     {
                         reviews.map(review =>
                             <div className="col d-flex justify-content-center" key={review._id}>
-                                <div className="card mb-3 bg-light" style={{ width: "20rem"}}>
+                                <div className="card mb-3 bg-light" style={{ width: "20rem" }}>
                                     <div className="card-body">
-                                        <h5 className="card-title m-0">{review.name}</h5>
-                                        <small>{review.designation}</small>
+                                        <div className="d-flex justify-content-between mb-5">
+                                            <div>
+                                                <h5 className="card-title m-0">{review.name}</h5>
+                                                <small>{review.designation}</small>
+                                            </div>
+                                            <div>
+                                                <FontAwesomeIcon icon={faUser} size="3x" />
+                                            </div>
+                                        </div>
+
                                         <p className="card-text mt-3">{review.description}</p>
                                     </div>
                                 </div>

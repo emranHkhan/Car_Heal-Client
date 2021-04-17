@@ -1,9 +1,8 @@
-
-import React, { useContext, useEffect, useState } from 'react';
+import React from 'react';
 import { useHistory } from 'react-router';
-import { Link } from 'react-router-dom';
-import { UserContext } from '../../../App';
 import './Services.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons'
 
 
 
@@ -44,7 +43,9 @@ const Services = ({ serviceData }) => {
                                             </div>
                                         </div>
                                         <div className="p-2">
-                                            <button className="btn btn-info btn-block" onClick={() => handleBook(service._id)}>submit</button>
+                                            <button className="btn btn-info btn-block" onClick={() => handleBook(service._id)}>
+                                                <span className="mr-3">Get Service</span><FontAwesomeIcon icon={faAngleDoubleRight} />
+                                            </button>
                                            
                                         </div>
                                     </div>

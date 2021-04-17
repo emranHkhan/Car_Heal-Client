@@ -5,7 +5,8 @@ import firebaseConfig from './firebase.config';
 import { useHistory, useLocation } from 'react-router-dom';
 import { UserContext } from '../../App';
 import loginimg from '../../images/login.png';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faGoogle } from '@fortawesome/free-brands-svg-icons'
 
 const Login = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
@@ -56,7 +57,9 @@ const Login = () => {
                 <div className="col-md-6">
                     <div className="mt-5">
                         <h1 className="text-center">Please! Login.</h1>
-                        <button onClick={handleGoogleSignIn} className="mt-5 btn btn-success btn-block">Google Sign in</button>
+                        <button onClick={handleGoogleSignIn} className="mt-5 btn btn-success btn-block">
+                        <FontAwesomeIcon icon={faGoogle} /><span className="ml-3">Google Sign in</span>
+                        </button>
                     </div>
                 </div>
             </div>

@@ -21,9 +21,9 @@ const NavBar = () => {
     console.log('role', isAdmin && isAdmin[role]);
 
     return (
-        <Navbar collapseOnSelect expand="md"  variant="dark" style={{backgroundColor: '#1A237E'}}>
+        <Navbar collapseOnSelect expand="md" variant="dark" style={{ backgroundColor: '#1A237E' }}>
             <Navbar.Brand>
-                <Link to="/" style={{ textDecoration: 'none', color: 'white', fontWeight: 'bold', fontSize: '1.5rem', fontFamily: 'Montserrat, sans-serif'}}>CarHeal</Link>
+                <Link to="/" style={{ textDecoration: 'none', color: 'white', fontWeight: 'bold', fontSize: '1.5rem', fontFamily: 'Montserrat, sans-serif' }}>CarHeal</Link>
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
@@ -41,9 +41,9 @@ const NavBar = () => {
                     </Nav.Link>
 
                     <Nav.Link className='link' as={Link} to="">
-                         Contact
+                        Contact
                     </Nav.Link>
-
+                    
                     {
                         (isAdmin && isAdmin[role] === 'admin') ?
 
@@ -57,9 +57,7 @@ const NavBar = () => {
                                 Dashboard
                             </Nav.Link>
 
-                    }
-
-
+                    } 
 
                     {
                         loggedInUser.email ? <p style={{ marginTop: '6.5px', color: 'white', fontWeight: 'bold' }}>{loggedInUser.name}</p> :
@@ -68,7 +66,7 @@ const NavBar = () => {
                             </Nav.Link>
                     }
 
-                    
+
 
                 </Nav>
             </Navbar.Collapse>
