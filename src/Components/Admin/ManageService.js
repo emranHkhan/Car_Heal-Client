@@ -12,7 +12,6 @@ const ManageService = () => {
         fetch('https://limitless-bastion-22533.herokuapp.com/allservices')
             .then(res => res.json())
             .then(data => {
-                console.log(data);
                 setServices(data);
             })
     }, [])

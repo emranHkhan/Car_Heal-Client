@@ -13,12 +13,11 @@ const NavBar = () => {
         fetch('https://limitless-bastion-22533.herokuapp.com/admin?email=' + loggedInUser.email)
             .then(res => res.json())
             .then(data => {
-                console.log(data[0]);
                 setIsAdmin(data[0])
             })
     }, [loggedInUser])
 
-   
+
     return (
         <Navbar collapseOnSelect expand="md" variant="dark" style={{ backgroundColor: '#1A237E' }}>
             <Navbar.Brand>
@@ -42,7 +41,7 @@ const NavBar = () => {
                     <Nav.Link className='link' as={Link} to="/contact">
                         Contact
                     </Nav.Link>
-                    
+
                     {
                         (isAdmin && isAdmin[role] === 'admin') ?
 
@@ -55,8 +54,7 @@ const NavBar = () => {
                             <Nav.Link className='link' as={Link} to="/book">
                                 Dashboard
                             </Nav.Link>
-
-                    } 
+                    }
 
                     {
                         loggedInUser.email ? <p style={{ marginTop: '6.5px', color: 'white', fontWeight: 'bold' }}>{loggedInUser.name}</p> :
@@ -64,8 +62,6 @@ const NavBar = () => {
                                 Login
                             </Nav.Link>
                     }
-
-
 
                 </Nav>
             </Navbar.Collapse>

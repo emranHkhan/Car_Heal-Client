@@ -10,7 +10,6 @@ const BookingList = () => {
         fetch('https://limitless-bastion-22533.herokuapp.com/allorders?email=' + loggedInUser.email)
             .then(res => res.json())
             .then(data => {
-                console.log(data);
                 setOrdersInfo(data)
             })
 

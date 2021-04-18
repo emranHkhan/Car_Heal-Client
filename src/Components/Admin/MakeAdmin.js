@@ -20,7 +20,6 @@ const MakeAdmin = () => {
         })
         .then(res => res.json())
         .then(data => {
-            console.log(data);
             alert('admin has been created');
         })
     }

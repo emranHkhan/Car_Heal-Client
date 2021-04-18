@@ -7,7 +7,6 @@ const OrdersAdmin = () => {
         fetch('https://limitless-bastion-22533.herokuapp.com/orders')
             .then(res => res.json())
             .then(data => {
-                console.log(data);
                 setServicesOnAdmin(data)
             })
     }, [])

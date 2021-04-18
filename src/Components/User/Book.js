@@ -17,7 +17,6 @@ const Book = () => {
         fetch(`https://limitless-bastion-22533.herokuapp.com/serviceonbook/${id}`)
             .then(res => res.json())
             .then(data => {
-                console.log(data[0]);
                 setOrders(data[0])
             })
     }, [id])
@@ -28,7 +27,6 @@ const Book = () => {
 
     const onSubmit = data => {
         setShippingData(data);
-        console.log(data);
     };
 
     const handlePaymentSuccess = paymentId => {
@@ -48,7 +46,6 @@ const Book = () => {
             .then(res => res.json())
             .then(data => {
                 if (data) {
-                    console.log(data);
                     alert('your order placed successfully')
                 }
             })

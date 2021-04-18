@@ -17,7 +17,6 @@ const Home = () => {
         fetch('https://limitless-bastion-22533.herokuapp.com/serviceonhome')
             .then(res => res.json())
             .then(data => {
-                console.log(data);
                 setServiceData(data);
             })
     }, [loggedInUser])
@@ -26,7 +25,6 @@ const Home = () => {
         fetch('https://limitless-bastion-22533.herokuapp.com/loadreviews')
             .then(res => res.json())
             .then(data => {
-                console.log(data);
                 setReviews(data);
             })
     }, [loggedInUser])

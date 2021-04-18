@@ -30,15 +30,12 @@ const ServicesAdmin = () => {
             status: ''
         }
 
-        console.log(serviceData);
-
         fetch('https://limitless-bastion-22533.herokuapp.com/addService', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(serviceData)
         })
             .then(res => {
-                console.log(res);
                 alert('Service is added');
             })
     }
@@ -51,7 +48,6 @@ const ServicesAdmin = () => {
 
         axios.post('https://api.imgbb.com/1/upload', imageData)
             .then(res => {
-                console.log(res);
                 setImageURL(res.data.data.display_url);
                 setIsIamgeLoaded(false)
             })

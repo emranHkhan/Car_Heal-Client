@@ -22,7 +22,6 @@ const Login = () => {
         var provider = new firebase.auth.GoogleAuthProvider();
         firebase.auth().signInWithPopup(provider).then(function (result) {
             const { displayName, email, photoURL } = result.user;
-            console.log(result.user.photoURL);
 
             fetch('https://limitless-bastion-22533.herokuapp.com/isAdmin', {
                 method: 'POST',
