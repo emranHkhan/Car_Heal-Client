@@ -2,19 +2,8 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { UserContext } from '../../App';
 
-import firebase from "firebase/app";
-import "firebase/auth";
-
 const Sidebar = () => {
     const [loggedInUser, setLoggedInuser] = useContext(UserContext);
-
-    const handleSignOut = () => {
-        firebase.auth().signOut().then(() => {
-            setLoggedInuser({});
-        }).catch((error) => {
-            console.log(error);
-        });
-    }
 
     return (
         <div className="h-100" style={{ backgroundImage: 'linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%)' }}>
@@ -36,7 +25,6 @@ const Sidebar = () => {
                             </li>
                         </ul>
 
-                        <button className="btn btn-danger w-75 mt-5 mx-auto" onClick={handleSignOut}>Sign Out</button>
                     </div>
 
                     :
@@ -52,7 +40,7 @@ const Sidebar = () => {
                                 <Link to='/user/review'>Review</Link>
                             </li>
                         </ul>
-                        <button className="btn btn-danger w-75 mt-5 mx-auto" onClick={handleSignOut}>Sign Out</button>
+                       
                     </div>
 
             }

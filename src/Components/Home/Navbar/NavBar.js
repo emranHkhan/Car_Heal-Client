@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import Navbar from 'react-bootstrap/Navbar';
 import { Nav } from 'react-bootstrap';
 import { UserContext } from '../../../App';
+import firebase from "firebase/app";
+import "firebase/auth";
 
 const NavBar = () => {
     const [isAdmin, setIsAdmin] = useState({});
@@ -16,6 +18,15 @@ const NavBar = () => {
                 setIsAdmin(data[0])
             })
     }, [loggedInUser])
+
+
+    const handleSignOut = () => {
+        firebase.auth().signOut().then(() => {
+            setLoggedInUser({});
+        }).catch((error) => {
+            console.log(error);
+        });
+    }
 
 
     return (
@@ -56,8 +67,9 @@ const NavBar = () => {
                             </Nav.Link>
                     }
 
+
                     {
-                        loggedInUser.email ? <p style={{ marginTop: '6.5px', color: 'white', fontWeight: 'bold' }}>{loggedInUser.name}</p> :
+                        loggedInUser.email ? <button className="btn btn-danger btn-sm" onClick={handleSignOut}>Log Out</button>:
                             <Nav.Link as={Link} to="/login" className='link'>
                                 Login
                             </Nav.Link>
