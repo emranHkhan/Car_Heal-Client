@@ -33,7 +33,9 @@ const BookingList = () => {
                                     <div className="card-body text-center">
                                         <div className="d-flex justify-content-between mb-3">
                                             <h4 className="card-title">{info.title}</h4>
-                                            <span style={{backgroundColor: 'aliceblue', padding:'5px 10px 0', borderRadius: '5px'}}>{info.status ? info.status : 'not availabe'}</span>
+                                            {
+                                                info.status &&  <strong style={{backgroundColor: 'aliceblue', padding:'5px 10px 0', borderRadius: '5px'}}>{info.status}</strong>
+                                            }
                                         </div>
                                         <p className="card-text">{info.description}</p>
                                     </div>

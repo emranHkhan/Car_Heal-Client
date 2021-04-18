@@ -40,8 +40,6 @@ const Book = () => {
             payId: paymentId
         }
 
-
-
         fetch('https://limitless-bastion-22533.herokuapp.com/addOrder', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -60,41 +58,41 @@ const Book = () => {
 
     return (
         <>
-        {
-            loggedInUser.role ? <OrdersAdmin /> :
-            <div className="row" style={{height: '100vh'}}>
+            {
+                loggedInUser.role ? <OrdersAdmin /> :
+                    <div className="row" style={{ height: '100vh' }}>
 
-            <div className="col-md-3">
-                <Sidebar />
-            </div>
+                        <div className="col-md-3">
+                            <Sidebar />
+                        </div>
 
-            <div className="col-md-9 p-5" style={{ display: shippingData ? 'none' : 'block' }}>
-                <form className="form-group w-75" onSubmit={handleSubmit(onSubmit)}>
-                    <label>Name</label>
-                    <input name="name" defaultValue={loggedInUser.name} ref={register({ required: true })} className="form-control" />
-                    <label className="mt-3">Email</label>
-                    <input name="email" defaultValue={loggedInUser.email} ref={register({ required: true })} className="form-control" />
-                    <label className="mt-3">Service Title</label>
-                    <input name="title" defaultValue={orders.title} ref={register({ required: true })} className="form-control" />
+                        <div className="col-md-9 p-5" style={{ display: shippingData ? 'none' : 'block' }}>
+                            <form className="form-group w-75" onSubmit={handleSubmit(onSubmit)}>
+                                <label>Name</label>
+                                <input name="name" defaultValue={loggedInUser.name} ref={register({ required: true })} className="form-control" />
+                                <label className="mt-3">Email</label>
+                                <input name="email" defaultValue={loggedInUser.email} ref={register({ required: true })} className="form-control" />
+                                <label className="mt-3">Service Title</label>
+                                <input name="title" defaultValue={orders.title} ref={register({ required: true })} className="form-control" />
 
-                    <div className="d-flex mt-4 justify-content-between align-items-center">
-                        <label>You have to pay <strong>${orders.charge}</strong></label>
-                        <input type="submit" className="btn btn-primary w-75" />
+                                <div className="d-flex mt-4 justify-content-between align-items-center">
+                                    <label>You have to pay <strong>${orders.charge}</strong></label>
+                                    <button type="submit" className="btn btn-primary w-75">Confirm Order</button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div className="col-md-9" style={{ display: shippingData ? 'block' : 'none' }}>
+                            <div>
+                                <img src={payonline} alt="" className="w-25 d-block mx-auto mt-3" />
+                            </div>
+                            <div className="mt-4 border border-primary p-5">
+                                <ProcessPayment handlePaymentSuccess={handlePaymentSuccess} />
+                            </div>
+
+                        </div>
                     </div>
-                </form>
-            </div>
-
-            <div className="col-md-9" style={{ display: shippingData ? 'block' : 'none' }}>
-                <div>
-                    <img src={payonline} alt="" className="w-25 d-block mx-auto mt-3"/>
-                </div>
-                <div className="mt-4 border border-primary p-5">
-                    <ProcessPayment handlePaymentSuccess={handlePaymentSuccess} />
-                </div>
-
-            </div>
-        </div>
-        }
+            }
         </>
     );
 };

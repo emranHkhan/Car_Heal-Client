@@ -37,8 +37,8 @@ const Home = () => {
             <Header />
             <Services serviceData={serviceData} />
             <ShowCarousel />
-            <ArticlesLoader/>
-            <Reviews reviews={reviews}/>
+            <ArticlesLoader />
+            <Reviews reviews={reviews} />
             <Footer />
         </>
 

@@ -22,8 +22,8 @@ const ShowCarousel = () => {
                 
                 />
                 <Carousel.Caption>
-                    <h1>Car We Have Fixed</h1>
-                    
+                    <h5>Car We Have Fixed</h5>
+                    <h2>Ferrari</h2>
                 </Carousel.Caption>
             </Carousel.Item>
 
@@ -36,8 +36,8 @@ const ShowCarousel = () => {
                 />
 
                 <Carousel.Caption>
-                <h1>Car We Have Fixed</h1>
-                    
+                <h5>Car We Have Fixed</h5>
+                <h2>Audi</h2>
                 </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
@@ -49,8 +49,8 @@ const ShowCarousel = () => {
                 />
 
                 <Carousel.Caption>
-                <h1>Car We Have Fixed</h1>
-                    
+                <h5>Car We Have Fixed</h5>
+                <h2>Lamborghini</h2>
                 </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
@@ -62,8 +62,8 @@ const ShowCarousel = () => {
                 />
 
                 <Carousel.Caption>
-                <h1>Car We Have Fixed</h1>
-                   
+                <h5>Car We Have Fixed</h5>
+                <h2>Mercedeez</h2>
                 </Carousel.Caption>
             </Carousel.Item>
         </Carousel>

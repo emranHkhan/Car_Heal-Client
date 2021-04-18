@@ -21,11 +21,8 @@ const Login = () => {
     const handleGoogleSignIn = () => {
         var provider = new firebase.auth.GoogleAuthProvider();
         firebase.auth().signInWithPopup(provider).then(function (result) {
-            const { displayName, email } = result.user;
-            // const signedInUser = { name: displayName, email }
-            // setLoggedInUser(signedInUser);
-            // history.replace(from);
-
+            const { displayName, email, photoURL } = result.user;
+            console.log(result.user.photoURL);
 
             fetch('https://limitless-bastion-22533.herokuapp.com/isAdmin', {
                 method: 'POST',
@@ -34,9 +31,7 @@ const Login = () => {
             })
                 .then(res => res.json())
                 .then(data => {
-                    // console.log(data);
-                    // setIsAdmin(data);
-                    const signedInUser = { name: displayName, email: email, role: data }
+                    const signedInUser = { name: displayName, email: email, role: data, photoURL: photoURL}
                     setLoggedInUser(signedInUser);
                     history.replace(from);
                 })
@@ -52,13 +47,13 @@ const Login = () => {
         <div className="container mt-5">
             <div className="row">
                 <div className="col-md-6">
-                    <img src={loginimg} alt="" style={{maxWidth: '100%'}} />
+                    <img src={loginimg} alt="" style={{ maxWidth: '100%' }} />
                 </div>
                 <div className="col-md-6">
                     <div className="mt-5">
                         <h1 className="text-center">Please! Login.</h1>
                         <button onClick={handleGoogleSignIn} className="mt-5 btn btn-success btn-block">
-                        <FontAwesomeIcon icon={faGoogle} /><span className="ml-3">Google Sign in</span>
+                            <FontAwesomeIcon icon={faGoogle} /><span className="ml-3">Google Sign in</span>
                         </button>
                     </div>
                 </div>

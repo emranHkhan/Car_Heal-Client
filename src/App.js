@@ -1,9 +1,11 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useState } from "react";
 import {
   BrowserRouter as Router,
   Switch,
   Route
 } from "react-router-dom";
+import AboutUs from "./AboutUs/AboutUs";
+import Blogs from "./Blogs/Blogs";
 import MakeAdmin from "./Components/Admin/MakeAdmin";
 import ManageService from "./Components/Admin/ManageService";
 import OrdersAdmin from "./Components/Admin/OrdersAdmin";
@@ -16,14 +18,13 @@ import Book from "./Components/User/Book";
 import BookingList from "./Components/User/BookingList";
 import ClientReview from "./Components/User/ClientReview";
 import EmptyBook from "./Components/User/EmptyBook";
+import Contact from "./Contact/Contact";
 
 
 export const UserContext = createContext();
 
 function App() {
-
   const [loggedInUser, SetLoggedInUser] = useState({});
-
 
   return (
     <UserContext.Provider value={[loggedInUser, SetLoggedInUser]}>
@@ -32,6 +33,18 @@ function App() {
         <Switch>
           <Route exact path="/">
             <Home />
+          </Route>
+
+          <Route path="/blogs">
+            <Blogs />
+          </Route>
+
+          <Route path="/aboutus">
+            <AboutUs />
+          </Route>
+
+          <Route path="/contact">
+            <Contact />
           </Route>
 
           <Route path="/login">
@@ -62,11 +75,10 @@ function App() {
             <ManageService />
           </PrivateRoute>
 
+
           <PrivateRoute exact path="/user/book/:id">
             <Book />
           </PrivateRoute>
-
-         
 
           <PrivateRoute path="/user/bookinglist">
             <BookingList />

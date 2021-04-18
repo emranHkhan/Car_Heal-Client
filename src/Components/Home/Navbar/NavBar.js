@@ -18,8 +18,7 @@ const NavBar = () => {
             })
     }, [loggedInUser])
 
-    console.log('role', isAdmin && isAdmin[role]);
-
+   
     return (
         <Navbar collapseOnSelect expand="md" variant="dark" style={{ backgroundColor: '#1A237E' }}>
             <Navbar.Brand>
@@ -32,15 +31,15 @@ const NavBar = () => {
                         Home
                     </Nav.Link>
 
-                    <Nav.Link className='link' as={Link} to="">
+                    <Nav.Link className='link' as={Link} to="/blogs">
                         Blogs
                      </Nav.Link>
 
-                    <Nav.Link className='link' as={Link} to="">
+                    <Nav.Link className='link' as={Link} to="/aboutus">
                         About Us
                     </Nav.Link>
 
-                    <Nav.Link className='link' as={Link} to="">
+                    <Nav.Link className='link' as={Link} to="/contact">
                         Contact
                     </Nav.Link>
                     

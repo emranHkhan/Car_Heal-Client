@@ -1,8 +1,7 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUser } from '@fortawesome/free-solid-svg-icons'
 
 const Reviews = ({ reviews }) => {
+
     return (
         <section className="container-fluid bg-light py-5">
             <div className="text-center" style={{ marginLeft: '3%' }}>
@@ -23,7 +22,7 @@ const Reviews = ({ reviews }) => {
                                                 <small>{review.designation}</small>
                                             </div>
                                             <div>
-                                                <FontAwesomeIcon icon={faUser} size="3x" />
+                                                <img src={review.photoURL} alt="" style={{ maxWidth: '50%', borderRadius: '50%' }} />
                                             </div>
                                         </div>
 

@@ -13,11 +13,9 @@ const Services = ({ serviceData }) => {
         history.push(`/user/book/${id}`)
     }
 
-   
 
-   
     return (
-        <div className="container-fluid text-center py-5" style={{backgroundImage: 'linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)'}}>
+        <div className="container-fluid text-center py-5" style={{ backgroundImage: 'linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)' }}>
             <h6>What we offer</h6>
             <h1 className="mt-4">We Provide Quality Service</h1>
 
@@ -46,7 +44,7 @@ const Services = ({ serviceData }) => {
                                             <button className="btn btn-info btn-block" onClick={() => handleBook(service._id)}>
                                                 <span className="mr-3">Get Service</span><FontAwesomeIcon icon={faAngleDoubleRight} />
                                             </button>
-                                           
+
                                         </div>
                                     </div>
                                 </div>
