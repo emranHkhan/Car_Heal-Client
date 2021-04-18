@@ -76,7 +76,7 @@ function App() {
           </PrivateRoute>
 
 
-          <PrivateRoute exact path="/user/book/:id">
+          <PrivateRoute exact path="/book/:id">
             <Book />
           </PrivateRoute>
 

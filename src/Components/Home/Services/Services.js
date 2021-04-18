@@ -4,12 +4,12 @@ import './Services.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons'
 
+
 const Services = ({ serviceData }) => {
     const history = useHistory();
     const handleBook = (id) => {
-        history.push(`/user/book/${id}`)
+        history.push(`/book/${id}`)
     }
-
 
     return (
         <div id="cards_landscape_wrap-2">
