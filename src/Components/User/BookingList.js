@@ -25,26 +25,24 @@ const BookingList = () => {
 
                     {
                         ordersInfo.length > 0 ?
-                        ordersInfo.map(info =>
-                            <div className="col" key={info._id}>
-                                <div className="card mt-3" style={{ width: "18rem" }}>
+                            ordersInfo.map(info =>
+                                <div className="col" key={info._id}>
+                                    <div className="card mt-3" style={{ width: "18rem" }}>
 
-                                    <div className="card-body text-center">
-                                        <div className="d-flex justify-content-between mb-3">
-                                            <h4 className="card-title">{info.title}</h4>
-                                            {
-                                                info.status &&  <strong style={{backgroundColor: 'aliceblue', padding:'5px 10px 0', borderRadius: '5px'}}>{info.status}</strong>
-                                            }
+                                        <div className="card-body text-center">
+                                            <div className="d-flex justify-content-between mb-3">
+                                                <h4 className="card-title">{info.title}</h4>
+                                                <strong style={{ backgroundColor: 'aliceblue', padding: '5px 10px 0', borderRadius: '5px' }}>{info.status ? info.status : 'No status'}</strong>
+                                            </div>
+                                            <p className="card-text">{info.description}</p>
                                         </div>
-                                        <p className="card-text">{info.description}</p>
                                     </div>
                                 </div>
-                            </div>
 
-                        )
-                        :
-                        <h1 className="text-center col">
-                            Currently You Have No Bookings.
+                            )
+                            :
+                            <h1 className="text-center col">
+                                Currently You Have No Bookings.
                         </h1>
 
                     }
