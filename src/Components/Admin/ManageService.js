@@ -22,7 +22,7 @@ const ManageService = () => {
         })
             .then(res => res.text())
             .then(data => {
-                e.target.parentNode.parentNode.parentNode.style.display = 'none';
+                e.target.parentNode.parentNode.parentNode.parentNode.style.display = 'none';
 
             })
     }
